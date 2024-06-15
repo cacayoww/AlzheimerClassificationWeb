@@ -27,19 +27,15 @@ document.getElementById('drop-area').addEventListener('drop', (event) => {
 document.getElementById('clear-btn').addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('file-input').value = '';
-    document.getElementById('preview-img').src = 'images/img-icon.png';
+    document.getElementById('preview-img').src = 'static/img-icon.png';
     document.getElementById('preview-img').style.display = 'block';
-    document.getElementById('result-img').src = 'images/brain normal.png';
-    // // Mengosongkan file input
-    // document.getElementById('file-input').value = '';
-    // // Mengarahkan pengguna kembali ke halaman deteksi
-    // window.location.href = "/deteksi";
+    document.getElementById('result-img').src = 'static/brain normal.png';
 });
 
 document.getElementById('scan-btn').addEventListener('click', function (e) {
     e.preventDefault();
     const previewImgSrc = document.getElementById('preview-img').src;
-    document.getElementById('result-img').src = previewImgSrc;
+    // document.getElementById('result-img').src = previewImgSrc;
     const form = document.querySelector('form');
     form.submit();
 });

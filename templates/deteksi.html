@@ -63,21 +63,27 @@
                     <b>Scan Result</b>
                 </div>
                 <div>
-                    <!-- {% if img_data %} -->
-                    <!-- <div>
-                        <img src="data:image/png;base64,{{ img_data }}" class="img-out" id="result-img">
-                    </div> -->
-                    <!-- {% else %} -->
+                    {% if img_data %}
+                    <div>
+                        <img class="img-out" id="result-img" src="{{img_data}}">
+                    </div>
+                    {% else %}
                     <div>
                         <img src="static/brain normal.png" class="img-out" id="result-img">
                         <!-- <p>No image data available.</p> -->
                     </div>
-                    <!-- {% endif %} -->
+                    {% endif %}
                 </div>
                 <div class="output">
-                    <p>The severity level is classified as</p>
+                    <p>Using our model, The severity level is classified as</p>
                     {% if predicted_class is not none and predicted_class | length > 0 %}
                     <p id="output"><i>{{predicted_class}}</i></p>
+                    {% endif %}
+                </div>
+                <div class="output">
+                    <p>Using Roboflow model, The severity level is classified as</p>
+                    {% if predicted_class_2 %}
+                    <p id="output"><i>{{predicted_class_2}}</i></p>
                     {% endif %}
                 </div>
             </div>
